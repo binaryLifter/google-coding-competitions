@@ -2,11 +2,14 @@
 
 ## Qualification-Round
 
-- [x] A.Vestigium
-- [x] B.Nesting-Depth
-- [x] C.Parenting-Partnering-Returns
-- [x] D.ESAb-ATAd
-- [ ] E.Indicium
+Solved? | Problem Name
+:-----: | ------------
+:white_check_mark:| A.Vestigium
+:white_check_mark:| B.Nesting-Depth
+:white_check_mark:| C.Parenting-Partnering-Returns
+:white_check_mark:| D.ESAb-ATAd
+:x:| E.Indicium
+
 
 # 2019
 
