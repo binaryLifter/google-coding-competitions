@@ -2,7 +2,7 @@
 
 ## Qualification-Round
 
-Solved? | Problem Name
+Solved? | Problem
 :-----: | ------------
 :white_check_mark: | A.Vestigium
 :white_check_mark: | B.Nesting-Depth
@@ -23,7 +23,7 @@ Solved? | Problem Name
 
 ## Round-1B
 
-Test set 1 | Test set 2 | Problem Name
+Test set 1 | Test set 2 | Problem
 :-----: | :-----: | ------------
 :white_check_mark: | :white_check_mark: | A.Manhattan-Crepe-Cart
 :x: | :x: | B.Draupnir
@@ -31,7 +31,7 @@ Test set 1 | Test set 2 | Problem Name
 
 ## Round-1A
 
-Solved? | Problem Name
+Solved? | Problem
 :-----: | ------------
 :x: | A.Pylons
 :x: | B.Golf-Gophers
@@ -39,7 +39,7 @@ Solved? | Problem Name
 
 ## Qualification-Round
 
-Solved? | Problem Name
+Solved? | Problem
 :-----: | ------------
 :white_check_mark: | A.Foregone-Solution
 :white_check_mark: | B.You-Can-Go-Your-Own-Way
