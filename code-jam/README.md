@@ -23,6 +23,12 @@ Solved? | Problem Name
 
 ## Round-1B
 
+Test set 1 | Test set 2 | Problem Name
+:-----: | :-----: | ------------
+:white_check_mark: | :white_check_mark: | A.Manhattan-Crepe-Cart
+:x: | :x: | B.Draupnir
+:white_check_mark: | :x: | C.Draupnir
+
 ## Round-1A
 
 Solved? | Problem Name
