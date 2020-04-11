@@ -42,14 +42,12 @@ void solve_test_case()
     std::cin >> N >> M;
 
     std::vector<std::vector<int>> v(N);
-    std::vector<std::vector<bool>> used(N);
 
     long long int total = 0;
 
     for (int i = 0; i < N; i += 1)
     {
         v[i].resize(M);
-        used[i] = std::vector<bool>(M, false);
 
         for (int j = 0; j < M; j += 1)
         {
@@ -113,7 +111,6 @@ void solve_test_case()
                 continue;
             }
 
-            used[i][j] = true;
             q.push_back({i, j});
         }
 
