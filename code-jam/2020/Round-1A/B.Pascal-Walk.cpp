@@ -2,70 +2,63 @@
 #include <vector>
 #include <cassert>
 
-const int MAX_SIZE = 1123;
-
-int dp[MAX_SIZE][MAX_SIZE];
-
-void build()
-{
-    for (int i = 0; i < MAX_SIZE; i += 1)
-    {
-        dp[i][0] = 1;
-        dp[i][i - 1] = 1;
-        for (int j = 1; j < i - 1; j += 1)
-        {
-            dp[i][j] = dp[i - 1][j - 1] + dp[i - 1][j];
-            dp[i][j] = std::min(dp[i][j], int(1e9) + 5);
-        }
-        for (int j = 0; j < i; j += 1)
-        {
-            std::cout << dp[i][j] << " ";
-        }
-        std::cout << std::endl;
-    }
-}
+const int LIMIT = 31;
 
 void solve_test_case()
 {
     int N;
     std::cin >> N;
 
-    std::vector<std::pair<int, int>> v;
+    std::vector<std::pair<int, int>> ans;
 
-    v.push_back({1, 1});
-    N -= 1;
-
-    if (N > 0)
+    if (N < LIMIT)
     {
-        v.push_back({2, 2});
-        N -= 1;
+        for (int i = 0; i < N; i += 1)
+        {
+            std::cout << i + 1 << " " << 1 << std::endl;
+        }
+        return;
     }
 
-    if (N > 0)
+    N -= LIMIT;
+    int side = 0;
+
+    int to_do = 0;
+
+    std::cout << 1 << " " << 1 << std::endl;
+    for (int i = 1; i < LIMIT; i += 1)
     {
-        int i;
-        for (i = 3; N > 0; i += 1)
+        if (N & (1LL << i))
         {
-            if (i - 1 > N)
+            if (side)
             {
-                break;
+                for (int j = i; j >= 0; j -= 1)
+                {
+                    std::cout << i + 1 << " " << j + 1 << std::endl;
+                }
             }
-            N -= (i - 1);
-            v.push_back({i, 2});
+            else
+            {
+                for (int j = 0; j <= i; j += 1)
+                {
+                    std::cout << i + 1 << " " << j + 1 << std::endl;
+                }
+            }
+
+            to_do += 1;
+            N -= (1LL << i);
+            side ^= 1;
         }
-        i -= 1;
-        for (; i > 1 and N > 0; i -= 1)
+        else
         {
-            v.push_back({i, 1});
-            N -= 1;
+            std::cout << i + 1 << " " << (side ? i + 1 : 1) << std::endl;
         }
     }
 
-    assert(N == 0);
-
-    for (const auto &i : v)
+    to_do += N;
+    for (int i = LIMIT; to_do > 0; i += 1, to_do -= 1)
     {
-        std::cout << i.first << " " << i.second << std::endl;
+        std::cout << i + 1 << " " << (side ? i + 1 : 1) << std::endl;
     }
 }
 
