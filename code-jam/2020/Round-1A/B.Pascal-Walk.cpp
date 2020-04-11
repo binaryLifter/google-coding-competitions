@@ -2,7 +2,7 @@
 #include <vector>
 #include <cassert>
 
-const int LIMIT = 31;
+const int LIMIT = 50;
 
 void solve_test_case()
 {
