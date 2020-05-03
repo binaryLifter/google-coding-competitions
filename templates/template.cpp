@@ -2,6 +2,7 @@
 
 void solve_test_case()
 {
+    std::cout << std::endl;
 }
 
 int main()
