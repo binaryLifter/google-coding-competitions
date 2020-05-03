@@ -14,11 +14,6 @@ void solve_test_case()
     }
     std::sort(v.begin(), v.end());
 
-    if (D == 1)
-    {
-        std::cout << 0 << std::endl;
-    }
-
     if (N == 1)
     {
         std::cout << D - N << std::endl;
