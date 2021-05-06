@@ -2,7 +2,7 @@
 
 const int LIMIT = 16;
 
-int get_from_str(const std::string& s) {
+int get_integer_from_binary_str(const std::string& s) {
   int ans = 0;
   for (int i = 0; i < s.size(); i += 1) {
     if (s[i] == '0') {
@@ -38,17 +38,17 @@ std::string solve(const int S, const int E) {
       return std::to_string(dist[i]);
     }
     const int nxt_dist = dist[i] + 1;
-    const int nxt_a = i << 1;
-    if (nxt_a >= 0 and nxt_a < (1 << LIMIT) and
-        (not dist.count(nxt_a) or nxt_dist < dist[nxt_a])) {
-      q.push(nxt_a);
-      dist[nxt_a] = nxt_dist;
+    const int nxt_doubled = i << 1;
+    if (nxt_doubled >= 0 and nxt_doubled < (1 << LIMIT) and
+        (not dist.count(nxt_doubled) or nxt_dist < dist[nxt_doubled])) {
+      q.push(nxt_doubled);
+      dist[nxt_doubled] = nxt_dist;
     }
-    const int nxt_b = get_flipped(i);
-    if (nxt_b >= 0 and nxt_b < (1 << LIMIT) and
-        (not dist.count(nxt_b) or nxt_dist < dist[nxt_b])) {
-      q.push(nxt_b);
-      dist[nxt_b] = nxt_dist;
+    const int nxt_flipped = get_flipped(i);
+    if (nxt_flipped >= 0 and nxt_flipped < (1 << LIMIT) and
+        (not dist.count(nxt_flipped) or nxt_dist < dist[nxt_flipped])) {
+      q.push(nxt_flipped);
+      dist[nxt_flipped] = nxt_dist;
     }
   }
   return "IMPOSSIBLE";
@@ -59,7 +59,9 @@ void solve_test_case(const int test) {
   std::cin >> s >> e;
   assert(s.size() + e.size() <= LIMIT);
   std::cout << "Case #" << test << ": "
-            << solve(get_from_str(s), get_from_str(e)) << '\n';
+            << solve(get_integer_from_binary_str(s),
+                     get_integer_from_binary_str(e))
+            << '\n';
 }
 
 int main() {
