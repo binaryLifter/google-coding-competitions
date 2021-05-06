@@ -37,16 +37,17 @@ std::string solve(const int S, const int E) {
     if (i == E) {
       return std::to_string(dist[i]);
     }
+    if (i < 0 or i >= (1 << LIMIT)) {
+      continue;
+    }
     const int nxt_dist = dist[i] + 1;
     const int nxt_doubled = i << 1;
-    if (nxt_doubled >= 0 and nxt_doubled < (1 << LIMIT) and
-        (not dist.count(nxt_doubled) or nxt_dist < dist[nxt_doubled])) {
+    if (not dist.count(nxt_doubled) or nxt_dist < dist[nxt_doubled]) {
       q.push(nxt_doubled);
       dist[nxt_doubled] = nxt_dist;
     }
     const int nxt_flipped = get_flipped(i);
-    if (nxt_flipped >= 0 and nxt_flipped < (1 << LIMIT) and
-        (not dist.count(nxt_flipped) or nxt_dist < dist[nxt_flipped])) {
+    if (not dist.count(nxt_flipped) or nxt_dist < dist[nxt_flipped]) {
       q.push(nxt_flipped);
       dist[nxt_flipped] = nxt_dist;
     }
