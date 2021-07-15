@@ -4,7 +4,7 @@ void solve_test_case(const int test) {
   std::cout << "Case #" << test << ":" << '\n';
 }
 
-int main() {
+int32_t main() {
   std::ios_base::sync_with_stdio(0);
   std::cin.tie(0);
   std::cout.tie(0);
